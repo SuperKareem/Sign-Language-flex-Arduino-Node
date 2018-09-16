@@ -1,5 +1,5 @@
 import FlexSensor from "./flexSensor";
-import { isEqual } from "./helpers";
+import { isArrayEqualAnother } from "./helpers";
 
 const letters = [
   {
@@ -37,7 +37,7 @@ export default class Hand {
 
   checkLetter() {
     const letterObj = letters.find(letter =>
-      isEqual(letter.sign, this.fingers)
+      isArrayEqualAnother(letter.sign, this.fingers)
     );
 
     console.log("letter => ", letterObj && letterObj.letter);

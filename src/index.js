@@ -1,10 +1,10 @@
 import five from "johnny-five";
-import dweetClient from "node-dweetio";
+// import dweetClient from "node-dweetio";
 
 import Hand from "./hand";
 
 const board = new five.Board();
-const dweetio = new dweetClient();
+// const dweetio = new dweetClient();
 
 // Arduino Pins
 const A0 = "A0";
@@ -14,21 +14,7 @@ const A3 = "A3";
 const A4 = "A4";
 
 function onBoardReady() {
-  console.log("BOARD READY !!");
-
   const hand = new Hand([A0, A1, A2, A3, A4]);
-
-  // const flexSensorA1 = new FlexSensor({
-  //   pin: A1
-  // });
-
-  // const flexSensorA2 = new FlexSensor({
-  //   pin: A2
-  // });
-
-  // const flexSensorA3 = new FlexSensor({
-  //   pin: A3
-  // });
 }
 
 board.on("ready", onBoardReady);

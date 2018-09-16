@@ -1,4 +1,4 @@
-export function isEqual(value, other) {
+export function isArrayEqualAnother(value, other) {
   // Get the value type
   var type = Object.prototype.toString.call(value);
 
@@ -22,7 +22,7 @@ export function isEqual(value, other) {
 
     // If an object or array, compare recursively
     if (["[object Array]", "[object Object]"].indexOf(itemType) >= 0) {
-      if (!isEqual(item1, item2)) return false;
+      if (!isArrayEqualAnother(item1, item2)) return false;
     }
 
     // Otherwise, do a simple comparison

@@ -1,4 +1,4 @@
-const five = require("johnny-five");
+import five from "johnny-five";
 
 const VCC = 4.98;
 const R_DIV = 47500.0;
@@ -52,13 +52,5 @@ export default class FlexSensor {
 
   get state() {
     return this.angle > -20 && this.angle < 15 ? 1 : 0;
-  }
-
-  get isBending() {
-    return !this.state;
-  }
-
-  get isStraight() {
-    return this.state;
   }
 }
