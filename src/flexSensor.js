@@ -42,7 +42,9 @@ export default class FlexSensor {
   }
 
   get state() {
-    return this.angle > -25 && this.angle < 15 ? 1 : 0;
+    return this.angle > this.minAngle && this.angle < this.this.maxAngle
+      ? 1
+      : 0;
   }
 
   onFiveSensorChange = flexADC => {
