@@ -9,6 +9,10 @@ const letters = [
   {
     letter: "k",
     sign: [1, 0, 0, 1, 1]
+  },
+  {
+    letter: "k",
+    sign: [1, 0, 0, 1, 1]
   }
 ];
 
@@ -83,7 +87,9 @@ export default class Hand {
   debugSensors = () => this.sensors.map(sensor => sensor.debug === true);
 
   isResetRequired = enteredString =>
-    enteredString.toLowerCase().trim() === "yes" ? true : false;
+    enteredString && enteredString.toLowerCase().trim() === "yes"
+      ? true
+      : false;
 
   printSensorsValues = () =>
     this.sensors.map(sensor => sensor.logToConsoleSensorValues());
