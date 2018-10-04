@@ -76,7 +76,7 @@ export default class Hand {
     );
 
     let data = await this.waitForEvent();
-    const resetRequired = this.this.isResetRequired(data);
+    const resetRequired = this.isResetRequired(data);
 
     if (!resetRequired) {
       this.calibrated = true;
