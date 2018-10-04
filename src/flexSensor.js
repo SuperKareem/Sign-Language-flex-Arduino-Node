@@ -68,7 +68,7 @@ export default class FlexSensor {
     console.log(
       `------------ START SENSOR # [${this.pin}] --------------------`
     );
-    console.log("[FLEX] [" + this.pin + "] ADC => ", flexADC);
+    console.log("[FLEX] [" + this.pin + "] ADC => ", this.flexADC);
     console.log("[FLEX] [" + this.pin + "] RESISTANCE => ", this.flexR);
     console.log("[FLEX] [" + this.pin + "] ANGLE => ", this.angle);
     console.log("[FLEX] [" + this.pin + "] STATE => ", this.state);
