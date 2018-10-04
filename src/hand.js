@@ -75,13 +75,17 @@ export default class Hand {
       "do you want to reset the calibration, if so type yes and press enter: \n"
     );
 
-    const resetRequired = await this.waitForEvent(this.isResetRequired());
+    let data = await this.waitForEvent();
+    const resetRequired = this.this.isResetRequired(data);
 
-    if (resetRequired) this.calibrateFlexSensors();
-    else {
+    if (!resetRequired) {
       this.calibrated = true;
       this.debugSensors();
+
+      return;
     }
+
+    this.calibrateFlexSensors();
   };
 
   debugSensors = () => this.sensors.map(sensor => sensor.debug === true);
@@ -116,7 +120,7 @@ export default class Hand {
   waitForEvent = fn => {
     return new Promise(resolve => {
       process.stdin.on("data", chunk => {
-        fn && fn();
+        fn && fn(chunk.toString());
         resolve(chunk.toString());
       });
     });
