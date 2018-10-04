@@ -17,8 +17,6 @@ export default class Hand {
   fingers = [0, 0, 0, 0, 0];
 
   constructor(fingers) {
-    this.calibrateFlexSensors();
-
     if (!Array.isArray(fingers) && fingers.length !== 5) {
       throw new Error("you need to pass five pens!!");
     }
@@ -30,6 +28,8 @@ export default class Hand {
         // debug: true
       });
     });
+
+    this.calibrateFlexSensors();
   }
 
   onSensorValueChanges(index, state) {

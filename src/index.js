@@ -3,7 +3,7 @@ import five from "johnny-five";
 
 import Hand from "./hand";
 
-// const board = new five.Board();
+const board = new five.Board();
 // const dweetio = new dweetClient();
 
 // Arduino Pins
@@ -19,6 +19,4 @@ function onBoardReady() {
   const hand = new Hand([A0, A1, A2, A3, A6]);
 }
 
-// board.on("ready", onBoardReady);
-
-onBoardReady();
+board.on("ready", onBoardReady);
