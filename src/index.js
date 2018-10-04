@@ -16,7 +16,7 @@ const A5 = "A5";
 const A6 = "A6";
 
 function onBoardReady() {
-  const hand = new Hand([A0, A1, A2, A3, A6]);
+  const hand = new Hand([A0, A1, A2, A5, A6]);
 }
 
 board.on("ready", onBoardReady);
