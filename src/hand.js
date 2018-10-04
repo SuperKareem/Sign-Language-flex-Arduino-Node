@@ -15,6 +15,7 @@ const letters = [
 export default class Hand {
   sensors = [];
   fingers = [0, 0, 0, 0, 0];
+  calibrated = false;
 
   constructor(fingers) {
     if (!Array.isArray(fingers) && fingers.length !== 5) {
@@ -34,7 +35,7 @@ export default class Hand {
 
   onSensorValueChanges(index, state) {
     this.fingers[index] = state;
-    this.checkLetter();
+    this.calibrated && this.checkLetter();
   }
 
   checkLetter() {
@@ -73,7 +74,10 @@ export default class Hand {
     const resetRequired = await this.waitForEvent(this.isResetRequired());
 
     if (resetRequired) this.calibrateFlexSensors();
-    else this.debugSensors();
+    else {
+      this.calibrated = true;
+      this.debugSensors();
+    }
   };
 
   debugSensors = () => this.sensors.map(sensor => sensor.debug === true);
