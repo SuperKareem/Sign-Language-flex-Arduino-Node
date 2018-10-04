@@ -116,7 +116,7 @@ export default class Hand {
   waitForEvent = fn => {
     return new Promise(resolve => {
       process.stdin.on("data", chunk => {
-        fn();
+        fn && fn();
         resolve(chunk.toString());
       });
     });
